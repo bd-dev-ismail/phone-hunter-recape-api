@@ -8,6 +8,17 @@ const displayPhones = (phones) =>{
     // console.log(phones);
     const phonesContainer = document.getElementById("phones-container");
     phonesContainer.textContent = '';
+    //display 10 phones only
+    phones = phones.slice(0, 10);
+    const noPhone = document.getElementById("no-phone-found");
+    if(phones.length === 0){
+        
+        noPhone.classList.remove('d-none');
+    }
+    else{
+        noPhone.classList.add('d-none');
+    }
+    //Display All phone
     phones.forEach(phone => {
         console.log(phone);
         const phoneDiv = document.createElement('div');
@@ -23,13 +34,24 @@ const displayPhones = (phones) =>{
         `;
         phonesContainer.appendChild(phoneDiv);
     });
+    //Stop Spinner
+    toggleSpinner(false);
 };
 
 document.getElementById('btn-search').addEventListener('click', function(){
+    //Start Spinner
+    toggleSpinner(true);
     const searchField = document.getElementById("search-field");
     const searchText = searchField.value;
     loadPhones(searchText);
 })
-
-
-loadPhones();
+const toggleSpinner = isLoading =>{
+    const spinnerSection = document.getElementById("spinner");
+    if(isLoading){
+        spinnerSection.classList.remove('d-none');
+    }
+    else{
+        spinnerSection.classList.add('d-none');
+    }
+};
+// loadPhones('a');

@@ -21,11 +21,22 @@
             <div>
                 <h3 class="py-3">Here are some Brand of Phones: </h3>
             </div>
+            <!-- Display SEarch Result  -->
             <div id="phones-container" class="row row-cols-1 row-cols-md-3 g-4">
-                <!-- <div class="col">
-                    
-                </div> -->
+                <!-- <div class="col"></div> -->
+            </div>
+            <!-- No Phone Found  -->
+            <div id="no-phone-found" class="py-3 d-none">
+                <h3 class="text-danger text-center">No Phones Found! Search Again</h3>
+            </div>
+        </section>
+        <!-- Spinner  -->
+        <section id="spinner" class="d-none">
+            <div  style="height: 50vh;" class="d-flex justify-content-center align-items-center">
+                <div class="spinner-border text-danger" role="status">
+                    <span class="visually-hidden">Loading...</span>
                 </div>
+            </div>
         </section>
     </main>
 
